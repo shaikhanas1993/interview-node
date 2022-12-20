@@ -6,7 +6,7 @@ import * as Yup from "yup";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Contact() {
   const formik = useFormik({
     initialValues: {
       email: "",
