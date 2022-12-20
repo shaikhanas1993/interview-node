@@ -15,10 +15,22 @@ export default function Contact() {
       message: "",
     },
     validationSchema: Yup.object({
-      firstname: Yup.string().label("firstname").required(),
-      lastname: Yup.string().label("lastname").required(),
-      message: Yup.string().label("message").required(),
-      email: Yup.string().email().required(),
+      firstname: Yup.string()
+        .label("firstname")
+        .max(25, "can be max 25 characters")
+        .required(),
+      lastname: Yup.string()
+        .label("lastname")
+        .max(25, "can be max 25 characters")
+        .required(),
+      message: Yup.string()
+        .label("message")
+        .max(500, "can be max 500 characters")
+        .required(),
+      email: Yup.string()
+        .email()
+        .max(50, "can be max 50 characters")
+        .required(),
     }),
     onSubmit: async (values) => {
       const apiUrl = process.env.HOST || "http://localhost:4000";
